@@ -10,6 +10,8 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
+vim.api.nvim_set_keymap("n", "<leader>to", ":Neotest output<CR>", { noremap = true, silent = true })
+
 vim.keymap.set("n", "<leader>ta", function()
   local success, err = pcall(function()
   require("neotest").run.run(vim.fn.getcwd())
