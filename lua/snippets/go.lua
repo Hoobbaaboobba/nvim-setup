@@ -15,8 +15,8 @@ ls.add_snippets("go", {
   -- Basic for loop
   -- Type `for`
   s("for", {
-    t("for "), i(1, "i := 0"), t("; "), i(2, "i < 10"), t("; "), i(3, "i++"), t({ " {", "\t" }),
-    i(4, "// TODO: Add logic"),
+    t("for "), i(1, "i"), t(" "), t(":="), t(" "), i(2, "0"), t("; "), i(3, "i < 10"), t("; "), i(4, "i++"), t({ " {", "\t" }),
+    i(5, "// TODO: Add logic"),
     t({ "", "}" }),
   }),
 
@@ -63,7 +63,7 @@ ls.add_snippets("go", {
 
   -- Struct
   -- Type `s3`
-  s("st2", {
+  s("st3", {
     t("type "), i(1, "MyStruct"), t(" struct {"), t({ "", "\t" }),
     i(2, "Field"), t(" "), i(3, "string"), t({ "", "\t" }),
     i(4, "Field"), t(" "), i(5, "string"), t({ "", "\t" }),
@@ -75,7 +75,7 @@ ls.add_snippets("go", {
   -- Type `i`
   s("in", {
     t("type "), i(1, "MyInterface"), t(" interface {"), t({ "", "\t" }),
-    i(2, "Method() error"), t({ "", "}" }),
+    i(2, "Method"), t({ "", "}" }),
   }),
 
   -- Basic function
@@ -237,6 +237,8 @@ ls.add_snippets("go", {
  vim.keymap.set({ "i", "s" }, "<Tab>", function()
       if ls.expand_or_jumpable() then
           ls.expand_or_jump()
+      else
+          vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, true, true), "n", true)
       end
   end, { silent = true }),
 
