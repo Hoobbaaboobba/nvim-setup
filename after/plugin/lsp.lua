@@ -15,6 +15,7 @@ lsp.ensure_installed({
   'astro',
   'rust_analyzer',
   'tailwindcss',
+  'graphql',
 })
 
 -- Fix Undefined global 'vim'
